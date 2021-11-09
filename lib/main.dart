@@ -1,9 +1,8 @@
-//Introduccion a Flutter
-
-//Creacion de aplicación básica utilizando Material App
+//LABORATORIO N°9 - Write your first Flutter app
 
 //importamos el paquete de Flutter para utilizar Widgets
 import 'package:flutter/material.dart';
+//importamos
 import 'package:english_words/english_words.dart';
 
 //utilizamos función flecha y ejecutamos la app
