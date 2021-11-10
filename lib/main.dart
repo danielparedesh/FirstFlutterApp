@@ -2,42 +2,43 @@
 
 //importamos el paquete de Flutter para utilizar Widgets
 import 'package:flutter/material.dart';
-//importamos
+//importamos paquete que genera pares de palabras aleatorias
 import 'package:english_words/english_words.dart';
 
 //utilizamos función flecha y ejecutamos la app
+//funcion main, funcion principal ya sea para ejecutar flutter apps or dart code
 void main() => runApp(MyApp());
 
-// #docregion MyApp
+//creamos la clase de nuestra app y utilizamos StatelessWidget para indicar que la clase será un widget estático
 class MyApp extends StatelessWidget {
-  //creamos la clase de nuestra app y utilizamos StatelessWidget para indicar que la clase será un widget estático
-  // #docregion build
   @override
+//Sobreescribimos el método build el cual describe cómo mostrar el widget en términos de los widgets hijos
   Widget build(BuildContext context) {
-    //utilizamos método build para indicar como se mostrará el Widget
+//clase MaterialApp usamos para crear aplicación que usará material design
     return MaterialApp(
-      title: 'Startup Name Generator',
+      title: 'Startup Name Generator', //nombre de la app
       theme: ThemeData(
+        //definimos propiedades de diseño
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.white,
           foregroundColor: Colors.black,
         ),
       ),
-      home: RandomWords(),
+      home: RandomWords(), //la ruta principal, el primer widget que se mostrará
     );
   }
-  // #enddocregion build
 }
-// #enddocregion MyApp
 
-// #docregion RWS-var
+//creamos clase que extiende de State para manejar estados del Widget RandomWords (widget dinámico)
 class _RandomWordsState extends State<RandomWords> {
+  //variable que se le asigna array de de palabras random (WordPair)
   final _suggestions = <WordPair>[];
+  //variable que se le asigna las palabras random seleccionadas
   final _saved = <WordPair>{};
+  //variable que se le asigna estilo de texto
   final _biggerFont = const TextStyle(fontSize: 18.0);
-  // #enddocregion RWS-var
 
-  // #docregion _buildSuggestions
+//
   Widget _buildSuggestions() {
     return ListView.builder(
         padding: const EdgeInsets.all(16.0),
